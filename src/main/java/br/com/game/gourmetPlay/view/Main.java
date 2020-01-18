@@ -21,14 +21,14 @@ public class Main extends JFrame {
         JDesktopPane mainFrame = new JDesktopPane();
         this.getContentPane().add(mainFrame);
         this.createPanel();
-        this.setSize(640,480);
+        this.setSize(300,150);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     private void createPanel() {
         this.setContentPane(new QualityDishPanel());
-        this.setPreferredSize(new Dimension(500, 300));
+        this.setPreferredSize(new Dimension(300, 150));
         this.pack();
         this.setVisible(true);
         this.setLocationRelativeTo(null);

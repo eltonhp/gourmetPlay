@@ -74,7 +74,7 @@ public class OkButtonMouseAdapter extends MouseAdapter {
             }
         });
         if(this.foundDish == null && showConfirmDish(quality.getDish().getName())) {
-            JOptionPane.showMessageDialog(null, "acertei!", "Confirm", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Acertei de novo!", "Jogo Gourmet", JOptionPane.INFORMATION_MESSAGE);
             this.foundDish = quality.getDish();
         }
         if(this.foundDish == null) {
