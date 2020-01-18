@@ -3,7 +3,6 @@ package br.com.game.gourmetPlay.view.panel.qualityDishComponent.listener;
 import br.com.game.gourmetPlay.model.Dish;
 import br.com.game.gourmetPlay.model.Quality;
 import br.com.game.gourmetPlay.service.DishService;
-import br.com.game.gourmetPlay.service.QualityDishService;
 import br.com.game.gourmetPlay.service.QualityService;
 
 import javax.swing.*;
@@ -14,15 +13,23 @@ import java.awt.event.MouseEvent;
  * @author Elton H. Paula
  */
 public class OkButtonMouseAdapter extends MouseAdapter {
-    QualityDishService qualityDishService;
     QualityService qualityService;
     DishService dishService;
     Dish foundDish = null;
     Quality qualityParent  = null;
 
-    public OkButtonMouseAdapter(Quality quality) {
-        this.qualityParent = quality;
+    public OkButtonMouseAdapter() {
         this.initServices();
+        this.qualityParent = this.createQualityParent();
+    }
+
+    private Quality createQualityParent() {
+        this.qualityParent =  this.qualityService.createQuality();
+        this.qualityParent.setDish(this.dishService.createDish("Bolo de Chocolate"));
+        Quality quality = this.qualityService.createQuality("massa");
+        quality.setDish(this.dishService.createDish("Lasanha"));
+        this.qualityParent.getQualities().add(quality);
+        return qualityParent;
     }
 
     private void initServices() {

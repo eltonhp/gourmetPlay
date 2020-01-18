@@ -1,32 +1,22 @@
 package br.com.game.gourmetPlay.view.panel.qualityDishComponent;
 
-import br.com.game.gourmetPlay.service.QualityDishService;
 import br.com.game.gourmetPlay.view.panel.qualityDishComponent.listener.OkButtonMouseAdapter;
+
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 /**
  * @author Elton H. Paula
  */
 
 public class QualityDishPanel extends JPanel {
-
-    QualityDishService qualityDishService;
-
     public QualityDishPanel() {
         this.init();
     }
 
     private void init() {
-        initServices();
         initGourmetPanel();
-    }
-
-    private void initServices() {
-        this.qualityDishService = new QualityDishService();
     }
 
     private void initGourmetPanel() {
@@ -43,14 +33,10 @@ public class QualityDishPanel extends JPanel {
         add(painelProgress, BorderLayout.CENTER);
     }
 
-    private void loadQualityDish() {
-        this.loadQualityDish();
-    }
-
     private Component createOKButton() {
         JButton okButton = new JButton("OK");
         okButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        OkButtonMouseAdapter okButtonMouseAdapter = new OkButtonMouseAdapter(this.qualityDishService.getQualityDefault());
+        OkButtonMouseAdapter okButtonMouseAdapter = new OkButtonMouseAdapter();
         okButton.addMouseListener(okButtonMouseAdapter);
         return okButton;
     }
