@@ -1,6 +1,6 @@
 package br.com.game.gourmetPlay.view;
 
-import br.com.game.gourmetPlay.view.panel.GourmetPanel;
+import br.com.game.gourmetPlay.view.panel.qualityDishComponent.QualityDishPanel;
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
@@ -11,8 +11,6 @@ import java.awt.*;
  */
 @Component
 public class Main extends JFrame {
-
-    private JInternalFrame internal;
 
     public Main() {
         super("Jogo Gourmet");
@@ -25,12 +23,11 @@ public class Main extends JFrame {
         this.createPanel();
         this.setSize(640,480);
         this.setVisible(true);
-
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     private void createPanel() {
-        this.setContentPane(new GourmetPanel());
+        this.setContentPane(new QualityDishPanel());
         this.setPreferredSize(new Dimension(500, 300));
         this.pack();
         this.setVisible(true);
